@@ -1,0 +1,7 @@
+<svg id="Icon_Google" data-name="Icon/Google" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Icon_Google_Frame_Background_" data-name="Icon/Google [Frame Background]" width="24" height="24" fill="none"/>
+  <path id="Vector" d="M20,10a10.026,10.026,0,1,1-3.191-7.309L13.981,5.519A6,6,0,1,0,15.652,12H10V8h9v.042h.806A10.068,10.068,0,0,1,20,10Z" transform="translate(2 2)" fill="#fbc02d"/>
+  <path id="Vector-2" data-name="Vector" d="M8.847,0a9.954,9.954,0,0,1,6.809,2.691L12.828,5.519A5.988,5.988,0,0,0,3.286,7.755L0,5.345A9.994,9.994,0,0,1,8.847,0Z" transform="translate(3.153 2)" fill="#e53935"/>
+  <path id="Vector-3" data-name="Vector" d="M0,2.513,3.261,0A6,6,0,0,0,8.9,3.973a5.955,5.955,0,0,0,3.609-1.215l3.1,2.619a9.953,9.953,0,0,1-6.7,2.6A9.992,9.992,0,0,1,0,2.512Z" transform="translate(3.097 14.027)" fill="#4caf50"/>
+  <path id="Vector-4" data-name="Vector" d="M10,2A9.673,9.673,0,0,1,6.7,9.4L3.61,6.784h0A6.02,6.02,0,0,0,5.652,4H0V0H9.8l.008.041A10.068,10.068,0,0,1,10,2Z" transform="translate(12 10)" fill="#1565c0"/>
+</svg>
