@@ -1,0 +1,70 @@
+aside {
+    border-right: 1px solid $border-ash;
+    height: 90vh;
+    width: 100%;
+    transition: 0.4s;
+    overflow: hidden;
+
+}
+
+.bridged {
+    width: 70px;
+}
+.bridged-text {
+    transform: translateX(50px);
+}
+.menu {
+    margin: 20px;
+}
+button.toggle-menu {
+    background: transparent;
+    color: $text-dark;
+    cursor: pointer;
+    span {
+        font-size: 30px;
+    }
+}
+
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    a {
+        padding: 20px;
+    }
+}
+
+
+
+.menu-items a.active, .menu-items a:hover {
+    background: $border-ash;
+}
+.menu-items {
+    a {
+        .menu-options {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+        }
+        .menu-options {
+            img {
+                width: 20px;
+                margin-left: 5px;
+            }
+            span {
+                color: $text-dark;
+            }
+        }
+    }
+    a:last-child {
+        position: absolute;
+        width: 100%;
+        bottom: -85%;
+    }
+}
+
+.menu-text {
+    transition: 0.3s all;
+}

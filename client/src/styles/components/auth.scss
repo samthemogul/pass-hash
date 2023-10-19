@@ -1,0 +1,77 @@
+// /* main layout */
+main.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+// FORM SUPER CONTAINER 
+
+// SIDE SECTION
+.form-container, .desc {
+    margin: 4% 10% 0 10%;
+}
+.logo-con {
+    a {
+        width: 10%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        text-decoration: none;
+        color: $text-dark;
+    }
+}
+
+img.logo {
+    width:50px;
+}
+
+// FIELD CONTAINER
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+}
+.field-container > h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: $text-dark;
+    text-align: center;
+    margin-top: 20px;
+}
+.field-container > p {
+    color: $text-ash;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@import './register/RegisterForm.scss';
+@import '../elements/button.scss';
+@import '../elements/inputfield.scss';
+
+button.btn-pry.register {
+    width: 100%;
+}
+
+// LOGGED IN OR REGISTERED
+.logged-in {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 20px;
+}
+.logged-in {
+    a {
+        color: $king-blue;
+    }
+}
+.logged-in {
+    a:hover {
+        text-decoration: underline;
+    }
+}
+.logged-in {
+    img {
+        position: absolute;
+        bottom: -50%;
+        right: 30%;
+    }
+}

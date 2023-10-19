@@ -1,0 +1,22 @@
+.content {
+    height: 90vh;
+    overflow: auto;
+    transition: 0.4s all;
+}
+
+.dashboard-body {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    transition: 0.4s all;
+    overflow: auto;
+    width: 100%;
+}
+.abridged {
+    width: 95.5vw;
+    transform: translateX(-160px);
+}
+
+@import '../../components/dashboard/Searchbar.scss';
+@import '../../components/dashboard/StatusBlocks.scss';

@@ -1,0 +1,13 @@
+// INPUT FIELDS
+
+form {
+    .input {
+        input {
+            color: $text-ash;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid $border-ash;
+            border-radius: $border-radius-small;
+        }
+    }
+}

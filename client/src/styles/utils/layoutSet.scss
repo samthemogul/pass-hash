@@ -1,0 +1,39 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $text-size;
+}
+
+body {
+    background: var($wizard);
+    font-size: 0.88rem;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    overflow-x: hidden;
+    position: relative;
+}
+body, input, button, textarea {
+    font-family: $font-general;
+    font-size: $text-size;
+}
+
+// SCROLLBAR SETTINGS 
+.content::-webkit-scrollbar {
+    width: 10px;
+}
+.content::-webkit-scrollbar-track {
+    background: var(--border-ash);
+}
+.content::-webkit-scrollbar-thumb {
+    background: var(--text-ash);
+}

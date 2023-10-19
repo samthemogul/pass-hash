@@ -1,0 +1,62 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5% 1%;
+    border-bottom: 1px solid $border-ash;
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    background: $wizard;
+    top: 0;
+}
+nav {
+    .logo-con {
+        padding-top: 10px;
+    }
+}
+nav {
+    .logo-con {
+        h1 {
+            font-size: 15px;
+        }
+        img {
+            width: 30px;
+        }
+    }
+}
+
+.accounts {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.accounts {
+    .nav-icons {
+        span {
+            font-size: 25px;
+            color: $text-dark;
+            transition: 0.3s all;
+            font-weight: 200;
+        }
+        span:hover {
+            color: $king-blue;
+        }
+    }
+}
+
+
+.accounts > .profile-pic {
+    width: 40px;
+    height: 40px;
+    border: 2px solid $text-dark;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.accounts > .profile-pic {
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,29 @@
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $text-ash;
+    width: 500px;
+    height: 40px;
+    border-radius: $border-radius-small;
+    overflow: hidden;
+    input {
+        width: 90%;
+        height: 100%;
+        padding: 10px;
+        color: $text-ash;
+    }
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        background: $king-blue;
+        height: 100%;
+        cursor: pointer;
+        transition: 0.4s all;
+    }
+    button:hover {
+        background: $text-dark;
+    }
+}

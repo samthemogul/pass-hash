@@ -1,0 +1,16 @@
+body {
+    padding-top: 70px;
+    height: 100%;
+    position: relative;
+}
+// NAVIGATION BAR
+
+@import '../components/dashboard/NavBar.scss';
+
+// MAIN BODY
+main.dashboard {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+@import '../components/dashboard/SideBar.scss'
