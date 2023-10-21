@@ -1,0 +1,46 @@
+.gen-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    height: 90vh;
+    overflow: auto;
+    transition: 0.4s all;
+    .gen-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .generated {
+            width: 100%;
+            position: relative;
+            input {
+                width: 100%;
+                border: 1px solid $text-ash;
+                border-radius: $border-radius-small;
+                padding: 10px 50px 10px 10px;
+            }
+            span {
+                font-size: 20px;
+                color: $text-ash;
+                position: absolute;
+                top: 25%;
+                right: 3%;
+                cursor: pointer;
+            }
+        }
+        button {
+            width: 100%;
+        }
+        p {
+            text-align: center;
+            span {
+                color: $king-blue;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            span:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

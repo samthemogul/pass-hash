@@ -1,0 +1,45 @@
+.set-body {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    overflow: auto;
+    transition: 0.4s all;
+    margin: auto;
+    padding: 20px;
+    h3 {
+        color: $text-ash;
+        font-weight: 600;
+        font-size: 1rem;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $text-ash;
+    }
+    h4 {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 15px 0;
+        span {
+            color: $king-blue;
+        }
+    }
+    .setting-option {
+        border: 1px solid $border-ash;
+        border-radius: $border-radius-small;
+        padding: 20px;
+        margin: 20px 0;
+        cursor: pointer;
+    }
+    .setting-option:hover {
+        background: $border-ash;
+    }
+}
+
+.set-body h4, .set-body p {
+    color: $text-dark;
+}
+
+
+.set-body::-webkit-scrollbar {
+    display: none;
+}

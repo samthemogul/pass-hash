@@ -1,13 +1,20 @@
-import React from 'react'
+
 import paths from '../statics/assetsImport'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { authActions } from '../redux/slices/authSlice'
 
 const RegisterForm = () => {
+    const dispatch = useDispatch();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(authActions.signup)
+    }
   return (
          <div className="field-container">
                 <h1>Create new account</h1>
                 <p>Manage your login details more securely</p>
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <div className="input">
                         <input name="firstname" type="text" placeholder="Enter Firstname" />
                     </div>

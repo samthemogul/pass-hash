@@ -1,0 +1,118 @@
+/* Pop up environment */
+.popup-env {
+    position: absolute;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    overflow: auto;
+    // display: none;
+    .pop-section {
+        background: $wizard;
+        border-radius: $border-radius-small;
+        width: 35vw;
+        margin:80px auto;
+        padding: 30px;
+    }
+}
+button.close-btn {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+button.close-btn:hover {
+    background: $border-ash;
+    border-radius: 50%;
+}
+.pop-section {
+    h2 {
+        color: $text-ash;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .btn-pry {
+        width: 100%;
+    }
+}
+
+.detail-type {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.detail-type label, .input-field label {
+    font-size: 14px;
+    color: $text-ash;
+    padding-top: 10px;
+}
+.detail-type > span {
+    position:absolute;
+    top: 50%;
+    right: 5%;
+    font-size: 20px;
+    color: $text-ash;
+}
+
+#type-info, #folder-info {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid $text-ash;
+    border-radius: $border-radius-small;
+    font-size: 14px;
+    font-family: $font-general;
+    color: $text-dark;
+    appearance: none;
+    cursor: pointer;
+}
+.input-field  {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    position: relative;
+    input {
+        width: 100%;
+        border: 1px solid $text-ash;
+        padding: 15px 50px 15px 15px;
+        border-radius: $border-radius-small;
+    }
+    span {
+        position: absolute;
+        top: 55%;
+        right: 5%;
+        font-size: 20px;
+        color: $text-ash;
+        cursor: pointer;
+    }
+    span.view {
+        right: 12%;
+    }
+    input.password {
+        padding-right: 70px;
+    }
+}
+
+.check {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    input {
+        border: 1px solid $text-ash;
+    }
+}
+
+.pop-section {
+    textarea {
+        border: 1px solid $text-ash;
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border-radius: $border-radius-small;
+        resize: none;
+    }
+}

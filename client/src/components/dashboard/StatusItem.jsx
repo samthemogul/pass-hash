@@ -1,11 +1,11 @@
 
 
-const StatusItem = ({ source, value }) => {
+const StatusItem = ({ source, value, text }) => {
   return (
     <div className="block">
                         <div className="passblock-des">
                             <img src={source} alt="" />
-                            <span>Total passwords</span>
+                            <span>{text}</span>
                         </div>
                         <h1>{value}</h1>
                     </div>

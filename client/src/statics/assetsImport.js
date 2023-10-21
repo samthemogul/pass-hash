@@ -12,6 +12,15 @@ import search from "../assets/search.svg"
 import bigkey from "../assets/bigkey.svg"
 import caution from "../assets/caution.svg"
 import copy from "../assets/copy.svg"
+import extension from "../assets/extension.svg"
+import app from "../assets/app.svg"
+import profileIcon from "../assets/profile.svg"
+import securityLock from "../assets/securitylock.svg"
+import genUser from "../assets/gen-user.svg"
+import genPassword from "../assets/gen-password.svg"
+import edit from "../assets/edit.svg"
+import folder from "../assets/folder.svg"
+import deleteIcon from "../assets/delete.svg"
 
 
 
@@ -30,7 +39,16 @@ const paths = {
     search,
     bigkey,
     caution,
-    copy
+    copy,
+    extension,
+    app,
+    profileIcon,
+    securityLock,
+    genUser,
+    genPassword,
+    edit,
+    deleteIcon,
+    folder
 };
 
 export default paths;

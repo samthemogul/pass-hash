@@ -1,0 +1,36 @@
+.vault-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    height: 90vh;
+    overflow: auto;
+    transition: 0.4s all; 
+    .vault-actions {
+        display: flex;
+        gap: 20px;
+    }
+    .analytics-items {
+        .recent-con {
+            border: 1px solid $text-ash;
+            border-radius: $border-radius-small;
+            max-height: 60vh;
+            overflow: hidden;
+            width: 100%;
+            .subtag-description {
+                display: grid;
+                grid-template-columns: 20% 20% 20% 20% 20%;
+                background: $border-ash;
+                padding: 3px 10px;
+            }
+            .password-items {
+                li {
+                    grid-template-columns: 20% 20% 20% 20% 20%;
+                }
+            }
+        }
+    }
+}
+
+
+
