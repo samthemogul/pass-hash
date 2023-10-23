@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 
 const Dashboard = ({ isSignedIn }) => {
   const user = useSelector(state => state.user)
+  const displayPopUp = useSelector(state => state.popup.display)
   const navigate = useNavigate();
   useEffect(()=> {
     document.title = "Passhash - Dashboard"
@@ -21,7 +22,7 @@ const Dashboard = ({ isSignedIn }) => {
     if(isSignedIn){
         navigate('/dashboard/home')
     }
-    console.log(user)
+
 
 }, [])
   return (
@@ -44,7 +45,7 @@ const Dashboard = ({ isSignedIn }) => {
       {/* <Settings /> */}
       {/* <Accounts /> */}
       </main>
-      {/* <PopUp /> */}
+      { displayPopUp && <PopUp />}
     </>
   )
 }

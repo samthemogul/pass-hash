@@ -106,6 +106,8 @@ button.close-btn:hover {
     }
 }
 
+
+
 .pop-section {
     textarea {
         border: 1px solid $text-ash;
@@ -115,4 +117,65 @@ button.close-btn:hover {
         border-radius: $border-radius-small;
         resize: none;
     }
+    p {
+        text-align: center;
+    }
+    form {
+        .range {
+            border: 1px solid $text-ash;
+            padding: 20px;
+            border-radius: $border-radius-small;
+            .range-field {
+                display: flex;
+                margin-top: 10px;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                .range-input {
+                    width: 80%;
+                    -webkit-appearance: none;
+                    height: 3px;
+                    background: $text-ash;
+                    outline: none;
+                    border-radius: $border-radius-small;
+                }
+                .range-input::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background: $king-blue;
+                    cursor: pointer;
+                }
+                .range-value-field {
+                    width: 20%;
+                    border: 1px solid $text-dark;
+                    padding: 10px;
+                    border-radius: $border-radius-small;
+                }
+            }
+        }
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        button {
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            li {
+                font-size: 3rem;
+                cursor: pointer;
+            }
+        }
+        .on {
+            color: $king-blue;
+        }
+        .off {
+            color: #ccc;
+        }
+    }
 }
+

@@ -30,14 +30,16 @@ const Settings = () => {
     ]
   return (
     <div className="set-body">
-        <h3>MANAGE</h3>
-        <SettingOption  icon={settingTexts[0].icon} span={settingTexts[0].span} text={settingTexts[0].text}/>
-        <SettingOption  icon={settingTexts[1].icon} span={settingTexts[1].span} text={settingTexts[1].text}/>
-        <h3>SECURITY</h3>
-        <SettingOption  icon={settingTexts[2].icon} span={settingTexts[2].span} text={settingTexts[2].text}/>
-        <h3>OTHER</h3>
-        <SettingOption  icon={settingTexts[3].icon} span={settingTexts[3].span} text={settingTexts[3].text}/>
-        <SettingOption  icon={settingTexts[4].icon} span={settingTexts[4].span} text={settingTexts[4].text}/>
+        <div className="settings">
+            <h3>MANAGE</h3>
+            <SettingOption  icon={settingTexts[0].icon} span={settingTexts[0].span} text={settingTexts[0].text} action="autofill" />
+            <SettingOption  icon={settingTexts[1].icon} span={settingTexts[1].span} text={settingTexts[1].text} action="manage"/>
+            <h3>SECURITY</h3>
+            <SettingOption  icon={settingTexts[2].icon} span={settingTexts[2].span} text={settingTexts[2].text} action="2fa"/>
+            <h3>OTHER</h3>
+            <SettingOption  icon={settingTexts[3].icon} span={settingTexts[3].span} text={settingTexts[3].text} action="about"/>
+            <SettingOption  icon={settingTexts[4].icon} span={settingTexts[4].span} text={settingTexts[4].text} action="rate"/>
+        </div>
     </div>
   )
 }

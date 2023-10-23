@@ -37,7 +37,35 @@ const LoginForm = () => {
                     value: "strongpass",
                     favourite: false,
                     folder: "None"
-                }
+                },
+                {
+                    name: "www.twitter.com",
+                    status: "strong",
+                    value: "strongpass",
+                    favourite: true,
+                    folder: "None"
+                },
+                {
+                    name: "www.facebook.com",
+                    status: "strong",
+                    value: "strongpass",
+                    favourite: false,
+                    folder: "None"
+                },
+                {
+                    name: "www.google.com",
+                    status: "strong",
+                    value: "strongpass",
+                    favourite: false,
+                    folder: "None"
+                },
+                {
+                    name: "www.discord.com",
+                    status: "strong",
+                    value: "strongpass",
+                    favourite: true,
+                    folder: "None"
+                },
             ]
         }));
     }

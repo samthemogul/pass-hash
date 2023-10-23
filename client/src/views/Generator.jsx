@@ -20,8 +20,8 @@ const Generator = () => {
     }
   return (
     <div className="gen-body">
-        <GeneratorEngine imagePath={imagePaths.user} value={values.username} buttonText={ButtonTexts.userButton} linkText={LinkTexts.userLink} />
-        <GeneratorEngine imagePath={imagePaths.password} value={values.password} buttonText={ButtonTexts.passwordButton} linkText={LinkTexts.passwordLink}  />
+        <GeneratorEngine imagePath={imagePaths.user} value={values.username} buttonText={ButtonTexts.userButton} linkText={LinkTexts.userLink} action="usernameSet" />
+        <GeneratorEngine imagePath={imagePaths.password} value={values.password} buttonText={ButtonTexts.passwordButton} linkText={LinkTexts.passwordLink} action="passwordSet" />
     </div>
   )
 }

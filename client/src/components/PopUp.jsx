@@ -1,67 +1,42 @@
+import { useDispatch, useSelector } from "react-redux"
+import { popupActions } from "../redux/slices/popupSlice";
+import useShowPopUp from "../constants/customHooks/useShowPopUp";
+import NewItem from "./popUpContent/dashboard/NewItem";
+import PasswordSetting from "./popUpContent/generator/PasswordSetting";
+import UsernameSetting from "./popUpContent/generator/UsernameSetting";
+import AboutUs from "./popUpContent/settings/AboutUs";
+import AutoFill from "./popUpContent/settings/AutoFill";
+import ManageFolder from "./popUpContent/settings/ManageFolder";
+import RateUs from "./popUpContent/settings/RateUs";
+import TwoStepLogin from "./popUpContent/settings/TwoStepLogin";
+import NewFolder from "./popUpContent/vault/NewFolder";
+
+
+
 
 
 const PopUp = () => {
+    const popState = useSelector(state => state.popup.content)
+    const dispatch = useDispatch();
+        const hidePopUp = () => {
+            dispatch(popupActions.hide())
+    }
+    
   return (
     <div className="popup-env">
         <div className="pop-section">
-            <button type="button" className="close-btn"><span className="material-symbols-outlined">
+            <button onClick={hidePopUp} type="button" className="close-btn"><span className="material-symbols-outlined">
                 close
                 </span></button>
-            <h2>Add new item</h2>
-            <form action="">
-                <div className="detail-type">
-                    <label htmlFor="type-info">Select type</label>
-                    <select name="type-info" id="type-info">
-                        <option value="Login">Login</option>
-                    </select>
-                    <span className="material-symbols-outlined">
-                        expand_more
-                        </span>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="name">Name</label>
-                    <input name="name" type="text" placeholder="Enter Name" />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="username">Username</label>
-                    <input name="username" type="text" placeholder="Enter Username" />
-                    <span className="material-symbols-outlined">
-                        refresh
-                        </span>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="password">Password</label>
-                    <input className="password" name="password" type="password" placeholder="Enter Password" />
-                    <span className="material-symbols-outlined">
-                        refresh
-                        </span>
-                    <span className="material-symbols-outlined view">
-                        visibility
-                        </span>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="web-url">Web Url</label>
-                    <input name="web-url" type="text" placeholder="Enter Url" />
-                </div>
-                <div className="detail-type">
-                    <label htmlFor="type-info">Select folder</label>
-                    <select name="folder-info" id="folder-info">
-                        <option value="">No Folder</option>
-                    </select>
-                    <span className="material-symbols-outlined">
-                        expand_more
-                        </span>
-                </div>
-                <div className="check">
-                    <input type="checkbox" id="favourite" name="favourite" value="favourite" />
-                    <label htmlFor="favourite"> Add to favourites</label><br />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="notes">Notes (optional)</label>
-                    <textarea name="notes" id="notes" cols="30" rows="10" placeholder="Enter additional content"></textarea>
-                </div>
-                <button type="submit" className="btn-pry">Save details</button>
-            </form>
+            {popState.newItemPop && <NewItem />}
+            {popState.passwordSettingPop && <PasswordSetting />}
+            {popState.usernameSettingPop && <UsernameSetting />}
+            {popState.AboutUsPop && <AboutUs />}
+            {popState.AutoFillPop && <AutoFill />}
+            {popState.ManageFolderPop && <ManageFolder />}
+            {popState.RateUsPop && <RateUs />}
+            {popState.TwoStepLoginPop && <TwoStepLogin />}
+            {popState.NewFolderPop && <NewFolder />}
         </div>
     </div>
   )
