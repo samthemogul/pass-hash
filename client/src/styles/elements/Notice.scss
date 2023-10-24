@@ -1,0 +1,16 @@
+.notice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: $border-ash;
+    padding: 10px;
+    border-radius: $border-radius-small;
+    .icon {
+        color: $warning;
+        font-weight: 300;
+    }
+    .notice-text {
+        color: $text-dark;
+    }
+} 

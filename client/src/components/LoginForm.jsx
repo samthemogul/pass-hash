@@ -7,22 +7,6 @@ import { userActions } from '../redux/slices/userSlice';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const user = {
-        firstname : "Samuel",
-        lastname: "Emeka",
-        password: "123",
-        email: "samuelemeka@gmail.com",
-        recoveryEmail: "samuelemeka@gmail.com",
-        passwordList: [
-            {
-                name: "www.github.com",
-                status: "strong",
-                value: "strongpass",
-                favourite: true,
-                folder: "None"
-            }
-        ]
-    }
     const logUser = () => {
         dispatch(userActions.add({
             firstname : "Samuel",
@@ -66,7 +50,18 @@ const LoginForm = () => {
                     favourite: true,
                     folder: "None"
                 },
-            ]
+            ],
+            passwordSettings : {
+                passwordLength: 5,
+                includeCapitals: true,
+                includeSmall: true,
+                includeNumbers: true,
+                includeSymbols: true,
+            },
+            usernameSettings : {
+                capitalize: true,
+                includeDigits: true
+            }
         }));
     }
     const handleSubmit = (e) => {
