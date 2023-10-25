@@ -14,6 +14,8 @@ const popupSlice = createSlice({
             RateUsPop: false,
             TwoStepLoginPop: false,
             NewFolderPop: false,
+            deleteItemPop: false,
+            updateItemPop: false
         }
      },
     reducers: {
@@ -46,12 +48,34 @@ const popupSlice = createSlice({
             if(action.payload.NewFolderPop == true){
                 state.content.NewFolderPop = !state.content.NewFolderPop
             }
+            if(action.payload.updateItemPop == true){
+                state.content.updateItemPop = !state.content.updateItemPop
+            }
+            if(action.payload.deleteItemPop == true){
+                state.content.deleteItemPop = !state.content.deleteItemPop
+                // state.content.deleteItemPop.status = action.payload.deleteItemPop.status
+            }
         },
         hide(state){
             state.display = !state.display;
-            for (const keys in Object.keys(state.content)) {
-                state.content[Object.keys(state.content)[keys]]=false;
-            }
+            state.content.newItemPop = false
+            state.content.passwordSettingPop = false
+            state.content.usernameSettingPop = false
+            state.content.AboutUsPop = false
+            state.content.AutoFillPop = false
+            state.content.ManageFolderPop = false
+            state.content.RateUsPop = false
+            state.content.TwoStepLoginPop = false
+            state.content.NewFolderPop = false
+            state.content.deleteItemPop = false
+            state.content.updateItemPop = false
+            // for (const keys in Object.keys(state.content)) {
+            //     if(state.content[Object.keys(state.content)[keys]].status){
+            //         state.content[Object.keys(state.content)[keys]].status = false
+            //     }else {
+            //         state.content[Object.keys(state.content)[keys]]=false;
+            //     }
+            // }
             
         },
         

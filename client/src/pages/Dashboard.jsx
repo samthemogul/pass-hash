@@ -8,13 +8,17 @@ import Vault from "../views/Vault";
 import Settings from "../views/Settings";
 import Accounts from "../views/Accounts";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import InfoBox from "../components/InfoBox";
+import { infoActions } from "../redux/slices/infoSlice";
 
 
 
 const Dashboard = ({ isSignedIn }) => {
   const user = useSelector(state => state.user)
   const displayPopUp = useSelector(state => state.popup.display)
+  const displayInfoBox = useSelector(state => state.info.display)
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   useEffect(()=> {
     document.title = "Passhash - Dashboard"
@@ -22,9 +26,9 @@ const Dashboard = ({ isSignedIn }) => {
     if(isSignedIn){
         navigate('/dashboard/home')
     }
+    
 
-
-}, [])
+}, [])    
   return (
     <>
       <NavigationBar />
@@ -46,6 +50,7 @@ const Dashboard = ({ isSignedIn }) => {
       {/* <Accounts /> */}
       </main>
       { displayPopUp && <PopUp />}
+      { displayInfoBox && <InfoBox />}
     </>
   )
 }

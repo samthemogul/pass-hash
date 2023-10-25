@@ -10,6 +10,8 @@ import ManageFolder from "./popUpContent/settings/ManageFolder";
 import RateUs from "./popUpContent/settings/RateUs";
 import TwoStepLogin from "./popUpContent/settings/TwoStepLogin";
 import NewFolder from "./popUpContent/vault/NewFolder";
+import DeleteItem from "./popUpContent/vault/DeleteItem";
+import UpdateItem from "./popUpContent/dashboard/UpdateItem";
 
 
 
@@ -37,6 +39,8 @@ const PopUp = () => {
             {popState.RateUsPop && <RateUs />}
             {popState.TwoStepLoginPop && <TwoStepLogin />}
             {popState.NewFolderPop && <NewFolder />}
+            {popState.deleteItemPop && <DeleteItem />}
+            {popState.updateItemPop && <UpdateItem />}
         </div>
     </div>
   )

@@ -1,0 +1,17 @@
+.info-box {
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background: $border-ash;
+    border-radius: $border-radius-small;
+    padding: 20px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba($text-ash, 0.25);
+}
+.info-box .success {
+    color: $success;
+}

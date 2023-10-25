@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from "../../../redux/slices/userSlice";
 import { useState } from 'react';
 import { popupActions } from '../../../redux/slices/popupSlice';
+import { infoActions } from '../../../redux/slices/infoSlice';
 
 const UsernameSetting = () => {
     const loadedOptions = useSelector(state => state.user.usernameSettings)
@@ -17,6 +18,11 @@ const UsernameSetting = () => {
         e.preventDefault()
         dispatch(userActions.usernameSet(options))
         dispatch(popupActions.hide())
+        dispatch(infoActions.show({ itemUpdateSuccess: true }))
+
+        setTimeout(()=> {
+            dispatch(infoActions.hide())
+        }, 4000)
     }
   return (
     <><h2>Username Settings</h2>

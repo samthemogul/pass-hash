@@ -16,40 +16,17 @@ const LoginForm = () => {
             recoveryEmail: "samuelemeka@gmail.com",
             passwordList: [
                 {
-                    name: "www.github.com",
-                    status: "strong",
-                    value: "strongpass",
-                    favourite: false,
-                    folder: "None"
-                },
-                {
-                    name: "www.twitter.com",
-                    status: "strong",
-                    value: "strongpass",
-                    favourite: true,
-                    folder: "None"
-                },
-                {
-                    name: "www.facebook.com",
-                    status: "strong",
-                    value: "strongpass",
-                    favourite: false,
-                    folder: "None"
-                },
-                {
+                    id: 1,
+                    type: "Login",
                     name: "www.google.com",
+                    username: "samuel123",
+                    webUrl: "www.github.com",
                     status: "strong",
                     value: "strongpass",
                     favourite: false,
-                    folder: "None"
-                },
-                {
-                    name: "www.discord.com",
-                    status: "strong",
-                    value: "strongpass",
-                    favourite: true,
-                    folder: "None"
-                },
+                    folder: "No folder",
+                    notes: ""
+                }
             ],
             passwordSettings : {
                 passwordLength: 5,
@@ -61,7 +38,8 @@ const LoginForm = () => {
             usernameSettings : {
                 capitalize: true,
                 includeDigits: true
-            }
+            },
+            folders: [],
         }));
     }
     const handleSubmit = (e) => {

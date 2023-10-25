@@ -3,6 +3,7 @@ import { popupActions } from "../../../redux/slices/popupSlice";
 import { useEffect, useState } from "react";
 import { userActions } from "../../../redux/slices/userSlice";
 import Notice from "../../Notice";
+import { infoActions } from "../../../redux/slices/infoSlice";
 
 
 const PasswordSetting = () => {
@@ -16,7 +17,7 @@ const PasswordSetting = () => {
 
     const handleRangeChange = (e) => {
         setOptions({...options, passwordLength: e.target.value})
-        console.log(options)
+        
     }
     const handleCheckChange = (e) => {
             setOptions({...options, [e.target.name]: e.target.checked})
@@ -26,7 +27,11 @@ const PasswordSetting = () => {
         event.preventDefault();
         dispatch(userActions.passwordSet(options))
         dispatch(popupActions.hide())
-        
+        dispatch(infoActions.show({ itemUpdateSuccess: true }))
+
+        setTimeout(()=> {
+            dispatch(infoActions.hide())
+        }, 4000)
     
     }
   return (

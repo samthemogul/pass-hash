@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../slices/authSlice";
 import userReducer from "../slices/userSlice";
 import popupReducer from "../slices/popupSlice";
+import infoReducer from "../slices/infoSlice"
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
@@ -15,7 +16,8 @@ const persistConfig = {
 const rootReducer = combineReducers({ 
 auth: authReducer,
 user: userReducer,
-popup: popupReducer
+popup: popupReducer,
+info: infoReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

@@ -7,26 +7,18 @@ import usePasswordGenerate from "../../../constants/customHooks/usePasswordGener
 import useUsernameGenerate from "../../../constants/customHooks/useUsernameGenerate"
 import { infoActions } from "../../../redux/slices/infoSlice"
 
-const NewItem = () => {
+const UpdateItem = () => {
     const dispatch = useDispatch()
     const passwordSettings = useSelector(state => state.user.passwordSettings)
     const usernameSettings = useSelector(state => state.user.usernameSettings)
     const passwordItemList = useSelector(state => state.user.passwordList);
+    const idToUpdate = useSelector(state => state.user.updateId)
     const defaultFolder = useSelector(state => state.user.folders)
     const [ genCount , setGenCount ] = useState(0)
 
-    const [ newItem, setNewItem ] = useState({
-        id: passwordItemList.length + 1,
-        type: "Login",
-        name: "",
-        username: "",
-        webUrl: "",
-        status: "strong",
-        value: "",
-        favourite: false,
-        folder: defaultFolder[0],
-        notes: ""
-    })
+    const itemToUpdate = passwordItemList.find((item) => item.id == idToUpdate )
+
+    const [ newItem, setNewItem ] = useState(itemToUpdate)
 
     const genPassword = usePasswordGenerate(passwordSettings.passwordLength, genCount, passwordSettings.includeCapitals, passwordSettings.includeSmall, passwordSettings.includeNumbers, passwordSettings.includeSymbols).join('')
     const genUsername = useUsernameGenerate(usernameSettings.capitalize, usernameSettings.includeDigits)
@@ -44,9 +36,9 @@ const NewItem = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(userActions.addItem(newItem))
+        dispatch(userActions.updateItem(newItem))
         dispatch(popupActions.hide())
-        dispatch(infoActions.show({ itemSuccess: true }))
+        dispatch(infoActions.show({ itemUpdateSuccess: true }))
 
         setTimeout(()=> {
             dispatch(infoActions.hide())
@@ -67,7 +59,7 @@ const NewItem = () => {
         setNewItem({...newItem, [e.target.name]: e.target.checked})
 }
   return (
-    <><h2>Add new item</h2>
+    <><h2>Edit item</h2>
             <form onSubmit={handleSubmit}>
             <DetailType type="type" onSelect={getDropData} />
                 <div className="input-field">
@@ -97,7 +89,7 @@ const NewItem = () => {
                 </div>
                 <DetailType type="folder" onSelect={getDropData} />
                 <div className="check">
-                    <input defaultValue={newItem.favourite} onChange={handleCheckChange} type="checkbox" id="favourite" name="favourite"/>
+                    <input defaultChecked={newItem.favourite} onChange={handleCheckChange} type="checkbox" id="favourite" name="favourite"/>
                     <label htmlFor="favourite"> Add to favourites</label><br />
                 </div>
                 <div className="input-field">
@@ -109,4 +101,4 @@ const NewItem = () => {
   )
 }
 
-export default NewItem
+export default UpdateItem

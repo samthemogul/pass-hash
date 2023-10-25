@@ -3,6 +3,7 @@ import { popupActions } from "../../redux/slices/popupSlice"
 import usePasswordGenerate from "../../constants/customHooks/usePasswordGenerate"
 import { useEffect, useState } from "react"
 import useUsernameGenerate from "../../constants/customHooks/useUsernameGenerate"
+import { infoActions } from "../../redux/slices/infoSlice"
 
 const GeneratorEngine = ({ imagePath, value, buttonText, linkText, action }) => {
   const passwordSettings = useSelector(state => state.user.passwordSettings)
@@ -17,6 +18,13 @@ const GeneratorEngine = ({ imagePath, value, buttonText, linkText, action }) => 
     if(value == "usernameSet"){
       dispatch(popupActions.show({ usernameSettingPop: true}))
     }
+  }
+  const handleCopy = (value) => {
+    navigator.clipboard.writeText(value)
+    dispatch(infoActions.show({ copySuccess: true}))
+    setTimeout(()=> {
+      dispatch(infoActions.hide())
+  }, 4000)
   }
  
   const genPassword = usePasswordGenerate(passwordSettings.passwordLength, genCount, passwordSettings.includeCapitals, passwordSettings.includeSmall, passwordSettings.includeNumbers, passwordSettings.includeSymbols).join('');
@@ -48,7 +56,7 @@ const GeneratorEngine = ({ imagePath, value, buttonText, linkText, action }) => 
                 <img src={imagePath} alt="" />
                 <div className="generated">
                     <input type="text" value={buttonText == "Regenerate password" ? password : username} />
-                    <span className="material-symbols-outlined">
+                    <span onClick={()=> handleCopy(buttonText == "Regenerate password" ? password : username)} className="material-symbols-outlined">
                         file_copy
                         </span>
                 </div>
