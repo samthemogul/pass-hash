@@ -14,20 +14,7 @@ const LoginForm = () => {
             password: "123",
             email: "samuelemeka@gmail.com",
             recoveryEmail: "samuelemeka@gmail.com",
-            passwordList: [
-                {
-                    id: 1,
-                    type: "Login",
-                    name: "www.google.com",
-                    username: "samuel123",
-                    webUrl: "www.github.com",
-                    status: "strong",
-                    value: "strongpass",
-                    favourite: false,
-                    folder: "No folder",
-                    notes: ""
-                }
-            ],
+            passwordList: [],
             passwordSettings : {
                 passwordLength: 5,
                 includeCapitals: true,
@@ -39,7 +26,7 @@ const LoginForm = () => {
                 capitalize: true,
                 includeDigits: true
             },
-            folders: [],
+            folders: ["No folder"],
         }));
     }
     const handleSubmit = (e) => {

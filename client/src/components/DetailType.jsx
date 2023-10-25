@@ -30,7 +30,6 @@ const DetailType = ({ type, onSelect }) => {
                     <label htmlFor="type-info">{options.label}</label>
                     <input onClick={handleDisplay} type="text" id={options.id} readOnly value={currentValue} />
                     <div className={displayOption ? "options active" : "options"}>
-                        <button onClick={() => handleSelect(type, "No folder")}>No folder</button>
                         {options.dropOptions.length && options.dropOptions.map((option, index) => (<button key={index} onClick={() => handleSelect(type,option)}>{option}</button>))}
                     </div>
                     {/* <div name="folder-info" id={options.id}>
