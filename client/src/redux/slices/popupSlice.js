@@ -15,7 +15,8 @@ const popupSlice = createSlice({
             TwoStepLoginPop: false,
             NewFolderPop: false,
             deleteItemPop: false,
-            updateItemPop: false
+            updateItemPop: false,
+            updateAccountPop: false
         }
      },
     reducers: {
@@ -51,6 +52,9 @@ const popupSlice = createSlice({
             if(action.payload.updateItemPop == true){
                 state.content.updateItemPop = !state.content.updateItemPop
             }
+            if(action.payload.updateAccountPop == true){
+                state.content.updateAccountPop = !state.content.updateAccountPop
+            }
             if(action.payload.deleteItemPop == true){
                 state.content.deleteItemPop = !state.content.deleteItemPop
                 // state.content.deleteItemPop.status = action.payload.deleteItemPop.status
@@ -58,24 +62,23 @@ const popupSlice = createSlice({
         },
         hide(state){
             state.display = !state.display;
-            state.content.newItemPop = false
-            state.content.passwordSettingPop = false
-            state.content.usernameSettingPop = false
-            state.content.AboutUsPop = false
-            state.content.AutoFillPop = false
-            state.content.ManageFolderPop = false
-            state.content.RateUsPop = false
-            state.content.TwoStepLoginPop = false
-            state.content.NewFolderPop = false
-            state.content.deleteItemPop = false
-            state.content.updateItemPop = false
-            // for (const keys in Object.keys(state.content)) {
-            //     if(state.content[Object.keys(state.content)[keys]].status){
-            //         state.content[Object.keys(state.content)[keys]].status = false
-            //     }else {
-            //         state.content[Object.keys(state.content)[keys]]=false;
-            //     }
-            // }
+            // state.content.newItemPop = false
+            // state.content.passwordSettingPop = false
+            // state.content.usernameSettingPop = false
+            // state.content.AboutUsPop = false
+            // state.content.AutoFillPop = false
+            // state.content.ManageFolderPop = false
+            // state.content.RateUsPop = false
+            // state.content.TwoStepLoginPop = false
+            // state.content.NewFolderPop = false
+            // state.content.deleteItemPop = false
+            // state.content.updateItemPop = false
+            // state.content.updateAccountPop = false
+            for (const keys in Object.keys(state.content)) {
+                if(state.content[Object.keys(state.content)[keys]]){
+                    state.content[Object.keys(state.content)[keys]]=false;
+                }
+            }
             
         },
         

@@ -43,6 +43,7 @@ const UpdateItem = () => {
         setTimeout(()=> {
             dispatch(infoActions.hide())
         }, 4000)
+        dispatch(userActions.unsetId())
     }
 
     const handleChange = (e) => {

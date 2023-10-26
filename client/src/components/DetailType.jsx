@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 const DetailType = ({ type, onSelect }) => {
+    const passwordItemList = useSelector(state => state.user.passwordList);
+    const idToUpdate = useSelector(state => state.user.updateId)
+    const itemToUpdate = passwordItemList.find((item) => item.id == idToUpdate )
     const folderList = useSelector(state => state.user.folders)
     var options = {}
     switch(type){
@@ -12,9 +15,22 @@ const DetailType = ({ type, onSelect }) => {
             options = { id: "folder-info", label: "Select folder", dropOptions: folderList };
             
     }
+    const initialValueGen = (type) => {
+        if(type == "type"){
+            return options.dropOptions[0]
+        } else {
+            if(idToUpdate == -1) {
+                return options.dropOptions[0]
+            } else {
+                return itemToUpdate.folder
+            }
+        }
+    }
+
+    const initialValue = initialValueGen(type)
 
     const [ displayOption, setDisplayOption ] = useState(false)
-    const [ currentValue, setCurrentValue ] = useState(options.dropOptions[0])
+    const [ currentValue, setCurrentValue ] = useState(initialValue)
     const handleDisplay = () => {
         setDisplayOption(prev => !prev)
     }

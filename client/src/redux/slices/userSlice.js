@@ -9,9 +9,9 @@ const userSlice = createSlice({
         email: "",
         recoveryEmail: "",
         passwordList: [],
-        folders: [],
+        folders: ["No folder"],
         passwordSettings : {
-            passwordLength: 5,
+            passwordLength: 12,
             includeCapitals: true,
             includeSmall: true,
             includeNumbers: true,
@@ -23,9 +23,20 @@ const userSlice = createSlice({
         },
         deleteId : -1,
         updateId: -1,
+        updateUserInfo: {}
     },
     reducers: {
-        add(state, action){
+        register(state, action){
+            const user = action.payload
+            state.firstname = user.firstname;
+            state.lastname= user.lastname;
+            state.password= user.password;
+            state.email= user.email;
+            state.passwordList= user.passwordList
+            state.passwordSettings= user.passwordSettings
+            state.usernameSettings= user.usernameSettings
+        },
+        login(state, action){
             const user = action.payload;
             state.firstname = user.firstname;
             state.lastname= user.lastname;
@@ -36,6 +47,16 @@ const userSlice = createSlice({
             state.passwordSettings= user.passwordSettings
             state.usernameSettings= user.usernameSettings
             state.folders= user.folders
+        },
+        logout(state){
+            state.firstname = "";
+            state.lastname= "";
+            state.password= "";
+            state.email= "";
+            state.recoveryEmail= "";
+            state.passwordList= [];
+            state.passwordSettings= {};
+            state.usernameSettings= {};
         },
         passwordSet(state, action) {
             const settings = action.payload;
@@ -69,11 +90,26 @@ const userSlice = createSlice({
             const id = action.payload
             state.updateId = id
         },
+        unsetId(state, action){
+            state.updateId = -1
+            state.deleteId = -1
+        },
         updateItem(state, action){
             const id = state.updateId
             let indexToUpdate = state.passwordList.indexOf(state.passwordList.find((item) => item.id == id ));
             const updatedItem = action.payload;
             state.passwordList[indexToUpdate] = updatedItem
+        },
+        updateUser(state, action){
+            const newUserData = action.payload
+            const keyList = Object.keys(state)
+            for (const item in keyList) {
+                state[keyList[item]] = newUserData[keyList[item]]
+            }
+        },
+        updateUserInfo(state, action){
+            const info = action.payload;
+            state.updateUserInfo = info;
         }
     }
 });

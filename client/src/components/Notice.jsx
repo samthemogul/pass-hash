@@ -1,10 +1,14 @@
 
 
-const Notice = () => {
+const Notice = ({ error }) => {
   return (
     <span className="notice">
-        <span className="material-symbols-outlined icon">warning</span>
-        <span className="notice-text">Please check at least one option</span>
+        {error.map((item) => {
+         return <span key={item} className="notice-detail">
+          <span className="material-symbols-outlined icon">warning</span>
+          <span className="notice-text">{item}</span>
+        </span>
+        })}
     </span>
   )
 }

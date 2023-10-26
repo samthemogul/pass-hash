@@ -2,12 +2,20 @@
 
 form {
     .input {
+        position: relative;
         input {
             color: $text-ash;
             margin: 10px 0;
-            padding: 15px;
+            padding: 15px 40px 15px 15px;
             border: 1px solid $border-ash;
             border-radius: $border-radius-small;
+        }
+        span.material-symbols-outlined {
+            color: $text-ash;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 40%;
+            right: 5%;
         }
     }
 }

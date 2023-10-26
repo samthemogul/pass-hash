@@ -20,6 +20,7 @@ body {
     height: 100vh;
     user-select: none;
     overflow-x: hidden;
+    overflow-y: hidden;
     position: relative;
 }
 body, input, button, textarea {
@@ -32,8 +33,8 @@ body, input, button, textarea {
     width: 10px;
 }
 .content::-webkit-scrollbar-track {
-    background: var(--border-ash);
+    background: $border-ash;
 }
 .content::-webkit-scrollbar-thumb {
-    background: var(--text-ash);
+    background: $text-ash;
 }

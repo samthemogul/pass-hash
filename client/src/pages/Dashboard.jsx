@@ -11,6 +11,8 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import InfoBox from "../components/InfoBox";
 import { infoActions } from "../redux/slices/infoSlice";
+import FolderItems from "../views/FolderItems";
+import SearchResults from "../views/SearchResults";
 
 
 
@@ -30,7 +32,7 @@ const Dashboard = ({ isSignedIn }) => {
 
 }, [])    
   return (
-    <>
+    <div className="dashboard-con">
       <NavigationBar />
       <main className="dashboard">
       <SideBar />
@@ -42,6 +44,8 @@ const Dashboard = ({ isSignedIn }) => {
         <Route path="vault" element={<Vault />} />
         <Route path="settings" element={<Settings />} />
         <Route path="accounts" element={<Accounts />} />
+        <Route path="folders" element={<FolderItems />} />
+        <Route path="search-results" element={<SearchResults />} />
         </Routes>
       {/* </Routes> */}
       {/* <DashboardHome /> */}
@@ -51,7 +55,7 @@ const Dashboard = ({ isSignedIn }) => {
       </main>
       { displayPopUp && <PopUp />}
       { displayInfoBox && <InfoBox />}
-    </>
+    </div>
   )
 }
 

@@ -1,16 +1,24 @@
-body {
-    padding-top: 70px;
-    height: 100%;
-    position: relative;
-}
+// body {
+//     padding-top: 70px;
+//     height: 100%;
+//     position: relative;
+// }
 // NAVIGATION BAR
 
 @import '../components/dashboard/NavBar.scss';
 
 // MAIN BODY
+.dashboard-con {
+    overflow-y: hidden;
+    
+}
 main.dashboard {
     display: grid;
     grid-template-columns: 15% 85%;
+    width: 100%;
+    padding-top: 70px;
 }
+
+
 
 @import '../components/dashboard/SideBar.scss'

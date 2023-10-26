@@ -4,6 +4,7 @@ import NewFolderSuccess from "./infoBoxContent/NewFolderSuccess"
 import DeleteDetailSuccess from "./infoBoxContent/DeleteDetailSuccess"
 import UpdateItemSuccess from "./infoBoxContent/UpdateItemSuccess"
 import CopyDetailsSuccess from "./infoBoxContent/CopyDetailsSuccess"
+import AccountDetailsSuccess from "./infoBoxContent/AccountDetailsSuccess"
 
 
 const InfoBox = () => {
@@ -15,6 +16,7 @@ const InfoBox = () => {
         { infoState.folderSuccess && <NewFolderSuccess />}
         { infoState.deleteSuccess && <DeleteDetailSuccess />}
         { infoState.copySuccess && <CopyDetailsSuccess />}
+        { infoState.updateAccountSuccess && <AccountDetailsSuccess />}
     </div>
   )
 }

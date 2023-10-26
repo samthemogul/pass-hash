@@ -29,6 +29,9 @@ const PasswordItem = ({  vaultItem, item, tag }) => {
         dispatch(infoActions.hide())
     }, 4000)
     }
+    const handleFolder =() => {
+      dispatch(popupActions.show({ ManageFolderPop: true}))
+    }
 
   return (
     <li>
@@ -41,7 +44,7 @@ const PasswordItem = ({  vaultItem, item, tag }) => {
             <button onClick={()=> handleCopy(passwordItem.value)} className="copy"><img src={paths.securityLock} alt="" /></button>
               <button onClick={handleUpdate} className="copy"><img src={paths.edit} alt="" /></button>
               <button onClick={handleDelete} className="copy"><img src={paths.deleteIcon} alt="" /></button>
-              <button className="copy"><img src={paths.folder} alt="" /></button>
+              <button onClick={handleFolder} className="copy"><img src={paths.folder} alt="" /></button>
             
         </span>
     </li>

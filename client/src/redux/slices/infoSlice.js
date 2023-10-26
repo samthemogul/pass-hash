@@ -12,6 +12,7 @@ const infoSlice = createSlice({
             itemUpdateSuccess: false,
             usernameSettingSuccess: false,
             passwordSettingSuccess: false,
+            updateAccountSuccess: false
         }
      },
      reducers: {
@@ -37,6 +38,9 @@ const infoSlice = createSlice({
             }
             if(action.payload.copySuccess == true){
                 state.content.copySuccess = !state.content.copySuccess
+            }
+            if(action.payload.updateAccountSuccess == true){
+                state.content.updateAccountSuccess = !state.content.updateAccountSuccess
             }
         },
         hide(state){

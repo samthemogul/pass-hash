@@ -1,14 +1,32 @@
 // /* main layout */
 main.container {
     display: grid;
+    height: 100vh;
+    overflow: hidden;
     grid-template-columns: 50% 50%;
 }
 // FORM SUPER CONTAINER 
 
 // SIDE SECTION
 .form-container, .desc {
-    margin: 4% 10% 0 10%;
+    padding: 4% 10% 0 10%;
 }
+.form-container {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+.form-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.form-container::-webkit-scrollbar-track {
+    background: $border-ash;
+}
+.form-container::-webkit-scrollbar-thumb {
+    background: $text-ash;
+}
+
 .logo-con {
     a {
         width: 10%;

@@ -45,5 +45,11 @@
 
 
 .set-body::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+}
+.set-body::-webkit-scrollbar-track {
+    background: $border-ash;
+}
+.set-body::-webkit-scrollbar-thumb {
+    background: $text-ash;
 }

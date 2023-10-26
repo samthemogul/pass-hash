@@ -1,12 +1,12 @@
 .account-body {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     height: 90vh;
     overflow: auto;
     transition: 0.4s all;
-    margin: auto;
-    padding: 20px;
+    padding: 20px 250px;
+    
     h3 {
         color: $text-ash;
         font-weight: 600;
@@ -51,8 +51,15 @@
     }
     
 }
+
 .account-body::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+}
+.account-body::-webkit-scrollbar-track {
+    background: $border-ash;
+}
+.account-body::-webkit-scrollbar-thumb {
+    background: $text-ash;
 }
 .btn-pry.danger {
     background: #DD3535;

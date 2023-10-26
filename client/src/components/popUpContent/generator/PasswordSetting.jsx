@@ -60,7 +60,7 @@ const PasswordSetting = () => {
             <input defaultChecked={options.includeSymbols} onChange={handleCheckChange} type="checkbox" id="specials" name="includeSymbols" value="specials"/>
             <label htmlFor="includeSymbol">Include special characters </label><br/>
         </div>
-        {disableButton && <Notice />}
+        {disableButton && <Notice error={["Please check at least one option"]} />}
         <button disabled={disableButton} type="submit" className="btn-pry">Save details</button>
     </form></>
   )

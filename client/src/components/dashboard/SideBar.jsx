@@ -2,11 +2,13 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import paths from "../../statics/assetsImport";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../redux/slices/authSlice";
+import { userActions } from "../../redux/slices/userSlice";
 
 const SideBar = () => {
     const dispatch = useDispatch();
     const Logout = () => {
         dispatch(authActions.logout())
+        dispatch(userActions.logout())
     }
   return (
     <aside id="aside">

@@ -1,16 +1,21 @@
 .notice {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     background: $border-ash;
     padding: 10px;
     border-radius: $border-radius-small;
+    .notice-detail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
     .icon {
         color: $warning;
         font-weight: 300;
     }
     .notice-text {
         color: $text-dark;
+        font-size: 0.8rem;
     }
 } 

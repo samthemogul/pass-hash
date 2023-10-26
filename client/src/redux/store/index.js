@@ -3,6 +3,8 @@ import authReducer from "../slices/authSlice";
 import userReducer from "../slices/userSlice";
 import popupReducer from "../slices/popupSlice";
 import infoReducer from "../slices/infoSlice"
+import folderReducer from "../slices/folderSlice"
+import searchReducer from "../slices/searchSlice"
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
 auth: authReducer,
 user: userReducer,
 popup: popupReducer,
+folder: folderReducer,
+search: searchReducer,
 info: infoReducer
 })
 
