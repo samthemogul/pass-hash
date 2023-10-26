@@ -52,6 +52,58 @@
     
 }
 
+.profile-photo-section {
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+        border: 2px solid $text-dark;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .change-photo {
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.5);
+            cursor: pointer;
+            bottom: 0;
+            top: 0;
+            transition: 0.5s all;
+            display: none;
+            span {
+                color: $wizard;
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 300;
+            }
+        }
+        .change-photo.active {
+            display: flex;
+        }
+    }
+    .photo-desc {
+        width: 100%;
+        border-bottom: 1px solid $text-ash;
+        padding: 20px 20px;
+        h2 {
+            color: $text-dark;
+            font-weight: 500;
+            font-size: 2rem;
+            width: 100%;
+        }
+    }
+}
+
+
+
 .account-body::-webkit-scrollbar {
     width: 10px;
 }

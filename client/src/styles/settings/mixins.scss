@@ -1,0 +1,8 @@
+@mixin hoverEffect {
+    &:hover {
+      + .change-photo {
+        visibility: visible;
+        display: flex;
+      }
+    }
+  }

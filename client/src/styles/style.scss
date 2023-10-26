@@ -5,6 +5,9 @@
 @import './utils/variables.scss';
 @import './utils/layoutSet.scss';
 
+// SETTINGS AND FUNCTIONS
+@import './settings/mixins.scss';
+
 // AUTHENTICATION PAGES
 
 @import './pages/Register.scss';

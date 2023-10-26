@@ -19,7 +19,7 @@ const NavigationBar = () => {
                 help
                 </span></Link>
             <div className="profile-pic">
-                <img src={paths.profile} alt="Samuel Emeka" />
+                <img src={paths.defaultProfile} alt="Samuel Emeka" />
             </div>
         </div>
     </nav>

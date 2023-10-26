@@ -3,6 +3,7 @@ import registerpic from '../assets/registerpic.svg';
 import googleLogo from '../assets/googlelogo.svg';
 import line from "../assets/line.svg";
 import profile from "../assets/profile_pics/profile.jpg"
+import defaultProfile from "../assets/profile_pics/default-profile.png"
 import dashboard from "../assets/dashboard.svg"
 import refresh from "../assets/refresh.svg"
 import smallkey from "../assets/smallkey.svg"
@@ -31,6 +32,7 @@ const paths = {
     googleLogo,
     line,
     profile,
+    defaultProfile,
     dashboard,
     refresh,
     smallkey,
