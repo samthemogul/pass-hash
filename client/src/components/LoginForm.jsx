@@ -34,7 +34,7 @@ const LoginForm = () => {
   const [ errorMessage, setErrorMessage ] = useState("")
 
   const loginValidation = (credentials) => {
-      axios.post('http://localhost:3001/auth/login', credentials)
+      axios.post('https://passhash.onrender.com/auth/login', credentials)
     .then(response => {
       // Handle the response data
       if(response.status == 200 ){

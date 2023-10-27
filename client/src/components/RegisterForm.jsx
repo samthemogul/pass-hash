@@ -16,10 +16,12 @@ const RegisterForm = () => {
         
   // })
   const regUser =(data) => {
-    axios.post('http://localhost:3001/auth/register', data)
+    axios.post('https://passhash.onrender.com/auth/register', data)
   .then(response => {
     // Handle the response data
-    console.log(response.data);
+    dispatch(authActions.signup());
+    dispatch(userActions.register(response.data))
+    // console.log(response.data);
   })
   .catch(error => {
     // Handle errors
