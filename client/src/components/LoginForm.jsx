@@ -5,6 +5,7 @@ import { authActions } from "../redux/slices/authSlice";
 import { userActions } from "../redux/slices/userSlice";
 import { useEffect, useState } from "react";
 import Notice from "./Notice";
+import axios from 'axios';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,72 +20,41 @@ const LoginForm = () => {
       password: "new123",
     },
   ];
-  const logUser = () => {
-    dispatch(
-      userActions.login({
-        firstname: "Samuel",
-        lastname: "Emeka",
-        password: "123",
-        email: "samuelemeka@gmail.com",
-        recoveryEmail: "samuelemeka@gmail.com",
-        passwordList: [],
-        passwordSettings: {
-          passwordLength: 5,
-          includeCapitals: true,
-          includeSmall: true,
-          includeNumbers: true,
-          includeSymbols: true,
-        },
-        usernameSettings: {
-          capitalize: true,
-          includeDigits: true,
-        },
-        folders: ["No folder"],
-      })
-    );
+  const logUser = (data) => {
+    dispatch(userActions.login(data));
+    dispatch(authActions.login());
   };
 
   const [formValue, setFormValue] = useState({
     email: "",
     password: "",
   });
-  const loginValidation = (credentials) => {
-    for(const individual in users){
-        if(credentials.email == users[individual].email && credentials.password == users[individual].password){
-            return users[individual]
-        }
-    }
-    return false
-  }
-  const [ displayError, setDisplayError ] = useState(false)
-//   useEffect(()=> {
-//     if(!loginValidation(formValue) && formValue.email !== ""){
-//         setDisplayError(true)
-//         console.log(formValue.email)
-//     }
-//   },[])
+  
+  const [ errorMessage, setErrorMessage ] = useState("")
 
-  const handleError =() => {
-    if(loginValidation(formValue) == false){
+  const loginValidation = (credentials) => {
+      axios.post('http://localhost:3001/auth/login', credentials)
+    .then(response => {
+      // Handle the response data
+      if(response.status == 200 ){
+        logUser(response.data.user)
+      } else {
         setDisplayError(true)
-    } else {
-        setDisplayError(false)
-        logUser()
-        dispatch(authActions.login());
+      }
+    })
+    .catch(error => {
+      // Handle errors
+      setErrorMessage(error.response.data.msg)
+      setDisplayError(true)
+      console.error(error.response.data.msg);
+    });
     }
-  }
+  
+  const [ displayError, setDisplayError ] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleError();
-    // logUser()
-    // 
-
-    // if(location.state?.from && location.state.from.pathname !== '/dashboard/logout') {
-    //     navigate(location.state.from);
-    // } else {
-    //     navigate('/dashboard/home')
-    // }
+    loginValidation(formValue)
   };
 
   const handleChange = (e) => {
@@ -122,7 +92,7 @@ const LoginForm = () => {
             {passwordView ? "visibility_off" : "visibility"}
           </span>
         </div>
-        {displayError && <Notice error={["Invalid credentials"]} />}
+        {displayError && <Notice error={[errorMessage]} />}
         <button type="submit" className="btn-pry register">
           Login
         </button>

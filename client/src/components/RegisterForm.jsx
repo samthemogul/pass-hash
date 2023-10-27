@@ -6,33 +6,50 @@ import { useEffect, useState } from "react";
 import Notice from "./Notice";
 import { Formik, Form, Field } from "formik";
 import { userActions } from "../redux/slices/userSlice";
+import axios from 'axios';
 import { RegisterValidation, customPasswordValidation } from "../formik/RegisterValidation";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+
+  // useEffect(()=> {
+        
+  // })
+  const regUser =(data) => {
+    axios.post('http://localhost:3001/auth/register', data)
+  .then(response => {
+    // Handle the response data
+    console.log(response.data);
+  })
+  .catch(error => {
+    // Handle errors
+    console.error(error);
+  });
+  }
   const registerUser = (details) => {
       event.preventDefault();
-      dispatch(authActions.signup())
-      dispatch(userActions.register({
-        firstname : details.firstname,
-        lastname: details.lastname,
-        password: details.password,
-        email: details.email,
-        recoveryEmail: "",
-        passwordList: [],
-        passwordSettings : {
-            passwordLength: 12,
-            includeCapitals: true,
-            includeSmall: true,
-            includeNumbers: true,
-            includeSymbols: true,
-        },
-        usernameSettings : {
-            capitalize: true,
-            includeDigits: true
-        },
-        folders: ["No folder"],
-    }));
+      regUser(details)
+    //   dispatch(authActions.signup())
+    //   dispatch(userActions.register({
+    //     firstname : details.firstname,
+    //     lastname: details.lastname,
+    //     password: details.password,
+    //     email: details.email,
+    //     recoveryEmail: "",
+    //     passwordList: [],
+    //     passwordSettings : {
+    //         passwordLength: 12,
+    //         includeCapitals: true,
+    //         includeSmall: true,
+    //         includeNumbers: true,
+    //         includeSymbols: true,
+    //     },
+    //     usernameSettings : {
+    //         capitalize: true,
+    //         includeDigits: true
+    //     },
+    //     folders: ["No folder"],
+    // }));
   }
   const [passwordView, setPasswordView] = useState(false);
   const [passwordConfirmView, setPasswordConfirmView] = useState(false);
