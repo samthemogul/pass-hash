@@ -6,6 +6,7 @@ import { userActions } from "../redux/slices/userSlice";
 import { useEffect, useState } from "react";
 import Notice from "./Notice";
 import axios from 'axios';
+import { signInWithGoogle } from "../firebase";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,18 @@ const LoginForm = () => {
     setPasswordView((prev) => !prev);
   };
 
+  const handleGoogleAuth = async () => {
+    try {
+      const authResult = await signInWithGoogle();
+      console.log(authResult);
+      // Handle the response, e.g., set user data in your app's state.
+    } catch (error) {
+      console.error(error);
+      // Handle the error, e.g., display an error message to the user.
+    }
+  };
+  
+
   return (
     <div className="field-container login">
       <h1>Welcome Back</h1>
@@ -97,7 +110,11 @@ const LoginForm = () => {
           Login
         </button>
       </form>
-      <button type="button" className="btn-trans google-auth">
+      <button 
+      type="button" 
+      className="btn-trans google-auth"
+      onClick={handleGoogleAuth}
+      >
         <img src={paths.googleLogo} alt="" />
         <span>Sign in with Google</span>
       </button>
