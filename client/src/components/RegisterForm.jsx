@@ -7,6 +7,7 @@ import Notice from "./Notice";
 import { Formik, Form, Field } from "formik";
 import { userActions } from "../redux/slices/userSlice";
 import axios from 'axios';
+import BeatLoader from "react-spinners/BeatLoader";
 import { RegisterValidation, customPasswordValidation } from "../formik/RegisterValidation";
 
 const RegisterForm = () => {
@@ -16,15 +17,18 @@ const RegisterForm = () => {
         
   // })
   const regUser =(data) => {
+    setLoading(true);
     axios.post('https://passhash.onrender.com/auth/register', data)
   .then(response => {
     // Handle the response data
+    setLoading(false);
     dispatch(authActions.signup());
     dispatch(userActions.register(response.data))
     // console.log(response.data);
   })
   .catch(error => {
     // Handle errors
+    setLoading(false);
     console.error(error);
   });
   }
@@ -92,6 +96,12 @@ const RegisterForm = () => {
         setShowErrors(false)
     }
   },[passwordErrors])
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="field-container">
@@ -159,6 +169,14 @@ const RegisterForm = () => {
               </span>
             </div>
             {errors.confirmPassword && <Notice error={[errors.confirmPassword]} />}
+            <div className="loading">
+        {loading && <BeatLoader
+        color={'#000000'}
+        loading={loading}
+        cssOverride={override}
+        size={7}
+      />}
+        </div>
             <button type="submit" className="btn-pry register">
               Create account
             </button>

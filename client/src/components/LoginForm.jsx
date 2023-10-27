@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../redux/slices/authSlice";
 import { userActions } from "../redux/slices/userSlice";
 import { useEffect, useState } from "react";
+import BeatLoader from "react-spinners/BeatLoader";
 import Notice from "./Notice";
 import axios from 'axios';
 import { signInWithGoogle } from "../firebase";
@@ -30,24 +31,34 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
   
   const [ errorMessage, setErrorMessage ] = useState("")
+  const [loading, setLoading] = useState(false);
 
   const loginValidation = (credentials) => {
+      setLoading(true);
       axios.post('https://passhash.onrender.com/auth/login', credentials)
     .then(response => {
       // Handle the response data
+      setLoading(false);
       if(response.status == 200 ){
         logUser(response.data.user)
+        setLoading(false);
       } else {
         setDisplayError(true)
+        setLoading(false);
       }
     })
     .catch(error => {
       // Handle errors
+      setLoading(false);
       setErrorMessage(error.response.data.msg)
       setDisplayError(true)
-      console.error(error.response.data.msg);
     });
     }
   
@@ -106,6 +117,14 @@ const LoginForm = () => {
           </span>
         </div>
         {displayError && <Notice error={[errorMessage]} />}
+        <div className="loading">
+        {loading && <BeatLoader
+        color={'#000000'}
+        loading={loading}
+        cssOverride={override}
+        size={7}
+      />}
+        </div>
         <button type="submit" className="btn-pry register">
           Login
         </button>
