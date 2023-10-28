@@ -47,7 +47,9 @@ const NewItem = () => {
         const newItemUpdate = (values) => {
             axios.post(`https://passhash.onrender.com/users/add-login`, values)
             .then((response) => {
-                console.log(response);
+                dispatch(userActions.addItem(response))
+                dispatch(popupActions.hide())
+                dispatch(infoActions.show({ itemSuccess: true }))
             })
         }
 
@@ -55,10 +57,6 @@ const NewItem = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         newItemUpdate(newItem)
-        // dispatch(userActions.addItem(newItem))
-        // dispatch(popupActions.hide())
-        // dispatch(infoActions.show({ itemSuccess: true }))
-
         setTimeout(()=> {
             dispatch(infoActions.hide())
         }, 4000)
