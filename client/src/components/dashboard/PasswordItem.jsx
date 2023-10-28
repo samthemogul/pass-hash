@@ -35,7 +35,7 @@ const PasswordItem = ({  vaultItem, item, tag }) => {
 
   return (
     <li>
-        <span className="for-name">{  passwordItem.webUrl}</span>
+        <span className="for-name">{  passwordItem.url}</span>
         <span className="for-status strong">{  passwordItem.status}</span>
         <span className="for-pass" onClick={passwordDisplay}>{passwordShow ? passwordItem.value : "**********"}</span>
         {vaultItem && <span className="for-pass">{  passwordItem.folder}</span> }
