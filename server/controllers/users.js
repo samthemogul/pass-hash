@@ -43,7 +43,7 @@ export const addItem = (req, res) => {
                 { new: true}
             );
             const savedUser = await updatedUser.save()
-            res.status(201).json(savedUser.passwordList);
+            res.status(201).json(savedItem);
             } else {
                 res.status(501).json({ message: "User does not exist"})
             }
