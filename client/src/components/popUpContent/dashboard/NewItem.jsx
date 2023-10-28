@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import DetailType from "../../DetailType"
 import { useDispatch, useSelector } from "react-redux"
 import { popupActions } from "../../../redux/slices/popupSlice"
@@ -6,6 +6,7 @@ import { userActions } from "../../../redux/slices/userSlice"
 import usePasswordGenerate from "../../../constants/customHooks/usePasswordGenerate"
 import useUsernameGenerate from "../../../constants/customHooks/useUsernameGenerate"
 import { infoActions } from "../../../redux/slices/infoSlice"
+import axios from "axios"
 
 const NewItem = () => {
     const dispatch = useDispatch()
@@ -42,11 +43,20 @@ const NewItem = () => {
         }
     }
 
+        const newItemUpdate = (values) => {
+            axios.post('https://passhash.onrender.com/auth/login', values)
+            .then((response) => {
+                console.log(response);
+            })
+        }
+
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(userActions.addItem(newItem))
-        dispatch(popupActions.hide())
-        dispatch(infoActions.show({ itemSuccess: true }))
+        newItemUpdate(newItem)
+        // dispatch(userActions.addItem(newItem))
+        // dispatch(popupActions.hide())
+        // dispatch(infoActions.show({ itemSuccess: true }))
 
         setTimeout(()=> {
             dispatch(infoActions.hide())

@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema(
         },
         folders: {
             type: Array,
-            default: [],
+            default: ["No folder"],
         },
         passwordSettings: {
             type: Object,
