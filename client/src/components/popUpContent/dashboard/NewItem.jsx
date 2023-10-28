@@ -12,16 +12,17 @@ const NewItem = () => {
     const dispatch = useDispatch()
     const passwordSettings = useSelector(state => state.user.passwordSettings)
     const usernameSettings = useSelector(state => state.user.usernameSettings)
-    const passwordItemList = useSelector(state => state.user.passwordList);
+
     const defaultFolder = useSelector(state => state.user.folders)
+    const email = useSelector(state => state.user.email)
     const [ genCount , setGenCount ] = useState(0)
 
     const [ newItem, setNewItem ] = useState({
-        id: passwordItemList.length + 1,
+        email: email,
         type: "Login",
         name: "",
         username: "",
-        webUrl: "",
+        url: "",
         status: "strong",
         value: "",
         favourite: false,
@@ -44,7 +45,7 @@ const NewItem = () => {
     }
 
         const newItemUpdate = (values) => {
-            axios.post('https://passhash.onrender.com/auth/login', values)
+            axios.post(`https://passhash.onrender.com/users/add-login`, values)
             .then((response) => {
                 console.log(response);
             })
