@@ -3,6 +3,7 @@ import NavigationBar from "../components/dashboard/NavigationBar";
 import { useEffect } from "react";
 import DashboardHome from "../views/DashboardHome";
 import PopUp from "../components/PopUp";
+import Loader from "../components/Loader";
 import Generator from "../views/Generator";
 import Vault from "../views/Vault";
 import Settings from "../views/Settings";
@@ -19,6 +20,7 @@ import SearchResults from "../views/SearchResults";
 const Dashboard = ({ isSignedIn }) => {
   const user = useSelector(state => state.user)
   const displayPopUp = useSelector(state => state.popup.display)
+  const displayLoading = useSelector(state => state.popup.loading)
   const displayInfoBox = useSelector(state => state.info.display)
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -54,6 +56,7 @@ const Dashboard = ({ isSignedIn }) => {
       {/* <Accounts /> */}
       </main>
       { displayPopUp && <PopUp />}
+      { displayLoading && <Loader />}
       { displayInfoBox && <InfoBox />}
     </div>
   )

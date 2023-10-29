@@ -77,15 +77,24 @@ const userSlice = createSlice({
         selectDeleteId(state, action){
             const id = action.payload
             state.deleteId = id
+            console.log(state.deleteId)
         },
-        deleteItem(state, action){
-            const id = state.deleteId
-            let indexToDelete = state.passwordList.indexOf(state.passwordList.find((item) => item.id == id ));
-            if (indexToDelete !== -1) {
-                state.passwordList.splice(indexToDelete, 1);
-                }
-            
-        },
+        deleteItem(state, action) {
+            const id = state.deleteId;
+            const indexToDelete = state.passwordList.findIndex(item => item._id == id);
+            console.log(id, indexToDelete)
+          
+            // if (indexToDelete !== -1) {
+            //   // Use slice to create a new array without the item to delete
+            //   const updatedList = [
+            //     ...state.passwordList.slice(0, indexToDelete),
+            //     ...state.passwordList.slice(indexToDelete + 1)
+            //   ];
+          
+            //   // Update the state with the new array
+            //   state.passwordList = updatedList;
+            // }
+          },
         selectUpdateId(state, action){
             const id = action.payload
             state.updateId = id

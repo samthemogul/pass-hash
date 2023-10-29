@@ -68,7 +68,7 @@ const PasswordItems = ({ tag, isVaultItem}) => {
                     </div>}
                             <ul className="password-items">
                                 { filteredList.length ? filteredList.map((item) => {
-                                  return <PasswordItemConfigured key={item.id} vaultItem={vaultItem} item={item} tag={tag} />
+                                  return <PasswordItemConfigured key={item._id} vaultItem={vaultItem} item={item} tag={tag} />
                                 }) : <li><em>No items added yet..</em></li>}
                                 {}
                                 

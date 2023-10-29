@@ -73,7 +73,7 @@ export const deleteItem = async (req, res) => {
         if (itemIndex !== -1) {
             user.passwordList.splice(itemIndex, 1);
             await user.save();
-            res.status(200).json(user.passwordList);
+            res.status(200).json(itemId);
         } else {
             res.status(404).json({ message: "Item not found in the password list" });
         }

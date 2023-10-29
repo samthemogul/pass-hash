@@ -16,10 +16,11 @@ const PasswordItem = ({  vaultItem, item, tag }) => {
     }
     const handleDelete = () => {
       dispatch(popupActions.show({ deleteItemPop : true }))
-      dispatch(userActions.selectDeleteId(passwordItem.id))
+      dispatch(userActions.selectDeleteId(passwordItem._id))
+      console.log(passwordItem._id)
     }
     const handleUpdate = () => {
-      dispatch(userActions.selectUpdateId(passwordItem.id))
+      dispatch(userActions.selectUpdateId(passwordItem._id))
       dispatch(popupActions.show({ updateItemPop: true }))
     }
     const handleCopy = (value) => {

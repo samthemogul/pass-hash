@@ -45,10 +45,12 @@ const NewItem = () => {
     }
 
         const newItemUpdate = (values) => {
+            dispatch(popupActions.hide())
+            dispatch(popupActions.setLoading())
             axios.post(`https://passhash.onrender.com/users/add-login`, values)
             .then((response) => {
-                dispatch(userActions.addItem(response))
-                dispatch(popupActions.hide())
+                dispatch(userActions.addItem(response.data))
+                dispatch(popupActions.setLoading())
                 dispatch(infoActions.show({ itemSuccess: true }))
             })
         }
@@ -102,7 +104,7 @@ const NewItem = () => {
                 </div>
                 <div className="input-field">
                     <label htmlFor="web-url">Web Url</label>
-                    <input defaultValue={newItem.webUrl} onChange={handleChange} name="webUrl" type="text" placeholder="Enter Url" />
+                    <input defaultValue={newItem.url} onChange={handleChange} name="url" type="text" placeholder="Enter Url" />
                 </div>
                 <DetailType type="folder" onSelect={getDropData} />
                 <div className="check">

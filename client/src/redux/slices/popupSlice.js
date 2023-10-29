@@ -17,7 +17,8 @@ const popupSlice = createSlice({
             deleteItemPop: false,
             updateItemPop: false,
             updateAccountPop: false
-        }
+        },
+        loading: false
      },
     reducers: {
         show(state, action){
@@ -81,6 +82,9 @@ const popupSlice = createSlice({
             }
             
         },
+        setLoading(state){
+            state.loading = !state.loading;
+        }
         
     }
 });
