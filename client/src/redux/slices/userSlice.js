@@ -105,10 +105,9 @@ const userSlice = createSlice({
             state.deleteId = -1
         },
         updateItem(state, action){
-            const id = state.updateId
-            let indexToUpdate = state.passwordList.indexOf(state.passwordList.find((item) => item.id == id ));
-            const updatedItem = action.payload;
-            state.passwordList[indexToUpdate] = updatedItem
+            const updatedPasswordList = action.payload;
+            console.log(updatedPasswordList)
+            state.passwordList = updatedPasswordList
         },
         updateUser(state, action){
             const newUserData = action.payload

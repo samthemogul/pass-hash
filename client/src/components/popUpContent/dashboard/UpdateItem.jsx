@@ -40,20 +40,16 @@ const UpdateItem = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(popupActions.hide())
-        // dispatch(popupActions.setLoading())
         console.log(newItem)
-
-        axios.put(`https://passhash.onrender.com/users/edit-login/${email}/${itemId}`, {
-            data: newItem
-        })
+        dispatch(popupActions.hide())
+        dispatch(popupActions.setLoading())
+        axios.put(`https://passhash.onrender.com/users/edit-login/${email}/${itemId}`, newItem)
         .then((response) => {
             dispatch(popupActions.setLoading())
-            console.log("updated", response.data)
+            dispatch(userActions.updateItem(response.data))
+            dispatch(infoActions.show({ itemUpdateSuccess: true }))
         })
-        // dispatch(userActions.updateItem(newItem))
-        // dispatch(popupActions.hide())
-        // dispatch(infoActions.show({ itemUpdateSuccess: true }))
+        
 
         setTimeout(()=> {
             dispatch(infoActions.hide())

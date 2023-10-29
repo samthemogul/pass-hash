@@ -110,8 +110,8 @@ export const updateItem = async (req, res) => {
 
         if (itemIndex !== -1) {
             Object.assign(itemToUpdate, updatedItem);
-            await user.save();
-            res.status(200).json(user.passwordList);
+            const savedUser = await user.save();
+            res.status(200).json(savedUser.passwordList);
         } else {
             res.status(404).json({ message: "Item not found in the password list" });
         }
