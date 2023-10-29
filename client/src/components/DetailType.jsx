@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const DetailType = ({ type, onSelect }) => {
     const passwordItemList = useSelector(state => state.user.passwordList);
     const idToUpdate = useSelector(state => state.user.updateId)
-    const itemToUpdate = passwordItemList.find((item) => item.id == idToUpdate )
+    const itemToUpdate = passwordItemList.find((item) => item._id == idToUpdate )
     const folderList = useSelector(state => state.user.folders)
     var options = {}
     switch(type){

@@ -6,17 +6,21 @@ import { userActions } from "../../../redux/slices/userSlice"
 import usePasswordGenerate from "../../../constants/customHooks/usePasswordGenerate"
 import useUsernameGenerate from "../../../constants/customHooks/useUsernameGenerate"
 import { infoActions } from "../../../redux/slices/infoSlice"
+import axios from "axios"
 
 const UpdateItem = () => {
     const dispatch = useDispatch()
     const passwordSettings = useSelector(state => state.user.passwordSettings)
     const usernameSettings = useSelector(state => state.user.usernameSettings)
     const passwordItemList = useSelector(state => state.user.passwordList);
+    const itemId = useSelector(state => state.user.updateId)
+    const email = useSelector(state => state.user.email)
+
     const idToUpdate = useSelector(state => state.user.updateId)
     const defaultFolder = useSelector(state => state.user.folders)
     const [ genCount , setGenCount ] = useState(0)
 
-    const itemToUpdate = passwordItemList.find((item) => item.id == idToUpdate )
+    const itemToUpdate = passwordItemList.find((item) => item._id == idToUpdate )
 
     const [ newItem, setNewItem ] = useState(itemToUpdate)
 
@@ -36,9 +40,20 @@ const UpdateItem = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(userActions.updateItem(newItem))
         dispatch(popupActions.hide())
-        dispatch(infoActions.show({ itemUpdateSuccess: true }))
+        // dispatch(popupActions.setLoading())
+        console.log(newItem)
+
+        axios.put(`https://passhash.onrender.com/users/edit-login/${email}/${itemId}`, {
+            data: newItem
+        })
+        .then((response) => {
+            dispatch(popupActions.setLoading())
+            console.log("updated", response.data)
+        })
+        // dispatch(userActions.updateItem(newItem))
+        // dispatch(popupActions.hide())
+        // dispatch(infoActions.show({ itemUpdateSuccess: true }))
 
         setTimeout(()=> {
             dispatch(infoActions.hide())
@@ -86,7 +101,7 @@ const UpdateItem = () => {
                 </div>
                 <div className="input-field">
                     <label htmlFor="web-url">Web Url</label>
-                    <input defaultValue={newItem.webUrl} onChange={handleChange} name="webUrl" type="text" placeholder="Enter Url" />
+                    <input defaultValue={newItem.url} onChange={handleChange} name="url" type="text" placeholder="Enter Url" />
                 </div>
                 <DetailType type="folder" onSelect={getDropData} />
                 <div className="check">

@@ -89,17 +89,17 @@ export const updateItem = async (req, res) => {
         const { email, id } = req.params;
         const updatedItem = req.body
         const user = await User.findOne({ email: email });
-        const folderToEdit = user.folders.find(item => item.name == updatedItem.folder)
+        // const folderToEdit = user.folders.find(item => item.name == updatedItem.folder)
         
 
-        if(folderToEdit){
-            const existingItem = folderToEdit.items.find(item => item.name === newItem.name)
-            if(!existingItem){
-                folderToEdit.items.push(savedItem)
-            }
-        } else {
-            res.status(500).json({ message: "Folder not found"})
-        }
+        // if(folderToEdit){
+        //     const existingItem = folderToEdit.items.find(item => item.name === newItem.name)
+        //     if(!existingItem){
+        //         folderToEdit.items.push(savedItem)
+        //     }
+        // } else {
+        //     res.status(500).json({ message: "Folder not found"})
+        // }
 
         if (!user) {
             return res.status(404).json({ message: "User not found" });
