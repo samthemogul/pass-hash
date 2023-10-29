@@ -110,8 +110,17 @@ export const updateItem = async (req, res) => {
 
         if (itemIndex !== -1) {
             Object.assign(itemToUpdate, updatedItem);
-            const savedUser = await user.save();
-            res.status(200).json(savedUser.passwordList);
+            try {
+                // Save the user
+                const savedUser = await user.save();
+                res.status(200).json(savedUser.passwordList);
+              } catch (error) {
+                // Handle the save error
+                console.error('Error saving the user:', error);
+                res.status(500).json({ message: 'Internal Server Error' });
+              }
+            // const savedUser = await user.save();
+            // res.status(200).json(savedUser.passwordList);
         } else {
             res.status(404).json({ message: "Item not found in the password list" });
         }
