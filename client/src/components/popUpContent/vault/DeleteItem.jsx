@@ -18,13 +18,13 @@ const DeleteItem = () => {
 
     const handleDelete = () => {
       dispatch(popupActions.hide())
-      // dispatch(popupActions.setLoading())
+      dispatch(popupActions.setLoading())
       axios.delete('https://passhash.onrender.com/users/delete-login', {
         data: deleteInfo
       })
       .then((response) => {
-        // dispatch(popupActions.setLoading())
-        dispatch(userActions.deleteItem())
+        dispatch(popupActions.setLoading())
+        dispatch(userActions.deleteItem(response.data))
         dispatch(infoActions.show({ deleteSuccess: true }))
       })
         

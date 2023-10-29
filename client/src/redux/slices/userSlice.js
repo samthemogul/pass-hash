@@ -80,9 +80,10 @@ const userSlice = createSlice({
             console.log(state.deleteId)
         },
         deleteItem(state, action) {
-            const id = state.deleteId;
-            const indexToDelete = state.passwordList.findIndex(item => item._id == id);
-            console.log(id, indexToDelete)
+            const updatedPasswordList = action.payload;
+            state.passwordList = updatedPasswordList
+            // const indexToDelete = state.passwordList.findIndex(item => item._id == id);
+            // console.log(id, indexToDelete)
           
             // if (indexToDelete !== -1) {
             //   // Use slice to create a new array without the item to delete
