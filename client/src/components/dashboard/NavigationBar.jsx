@@ -1,10 +1,17 @@
 
 import { Link } from 'react-router-dom'
 import paths from '../../statics/assetsImport'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { sideBarActions } from '../../redux/slices/sideBarSlice'
 
 const NavigationBar = () => {
     const name = useSelector(state => state.user.firstname)
+    const dispatch = useDispatch()
+
+    const handleToggle = () => {
+        dispatch(sideBarActions.toggleSidebar())
+    }
+
   return (
     <nav>
         <div className="logo-con">
@@ -21,7 +28,13 @@ const NavigationBar = () => {
             <div className="profile-pic">
                 <img src={paths.defaultProfile} alt="Samuel Emeka" />
             </div>
+            
         </div>
+        <div className="menu">
+                    <button onClick={handleToggle} className="toggle-menu" type="button"><span className="material-symbols-outlined">
+                        menu
+                        </span></button>
+                </div>
     </nav>
   )
 }

@@ -2,6 +2,12 @@
     height: 90vh;
     overflow: auto;
     transition: 0.4s all;
+    @media(max-width:600px){
+        width: 100vw;
+        -webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 .dashboard-body {

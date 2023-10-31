@@ -42,18 +42,19 @@ const UpdateItem = () => {
         event.preventDefault()
         console.log(newItem)
         dispatch(popupActions.hide())
-        dispatch(popupActions.setLoading())
-        axios.put(`https://passhash.onrender.com/users/edit-login/${email}/${itemId}`, newItem)
+        // dispatch(popupActions.setLoading())
+        axios.put(`http://localhost:3001/users/edit-login/${email}/${itemId}`, newItem)
         .then((response) => {
-            dispatch(popupActions.setLoading())
-            dispatch(userActions.updateItem(response.data))
-            dispatch(infoActions.show({ itemUpdateSuccess: true }))
+            console.log(response.data)
+            // dispatch(popupActions.setLoading())
+            // dispatch(userActions.updateItem(response.data))
+            // dispatch(infoActions.show({ itemUpdateSuccess: true }))
         })
         
 
-        setTimeout(()=> {
-            dispatch(infoActions.hide())
-        }, 4000)
+        // setTimeout(()=> {
+        //     dispatch(infoActions.hide())
+        // }, 4000)
         dispatch(userActions.unsetId())
     }
 

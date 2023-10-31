@@ -36,13 +36,13 @@ const AccountsForm = () => {
                     <label htmlFor="email">Email Address</label>
                     <input type="email" name="email" id="email" onChange={handleChange} defaultValue={updateInfo.email} />
                 </div>
-                <div className="account-detail">
+                {/* <div className="account-detail">
                     <label htmlFor="password">Master password</label>
                     <input type={passwordView ? "text" : "password"} className="password" name="password" id="master-password" onChange={handleChange} defaultValue={updateInfo.password} />
                     <span onClick={handleView} className="material-symbols-outlined">
                         {passwordView ? "visibility_off" : "visibility"}
                         </span>
-                </div>
+                </div> */}
                 <div className="account-detail">
                     <label htmlFor="recoveryEmail">Recovery email</label>
                     <input type="email" name="recoveryEmail" id="recovery-mail" onChange={handleChange} defaultValue={updateInfo.recoveryEmail} />

@@ -71,8 +71,8 @@ const userSlice = createSlice({
             state.passwordList.push(item);
         },
         createFolder(state, action) {
-            const folderName = action.payload;
-            state.folders.push(folderName)
+            const newFolders = action.payload;
+            state.folders = newFolders
         },
         selectDeleteId(state, action){
             const id = action.payload

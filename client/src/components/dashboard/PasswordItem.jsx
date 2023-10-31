@@ -19,10 +19,10 @@ const PasswordItem = ({  vaultItem, item, tag }) => {
       dispatch(userActions.selectDeleteId(passwordItem._id))
       console.log(passwordItem._id)
     }
-    const handleUpdate = () => {
-      dispatch(userActions.selectUpdateId(passwordItem._id))
-      dispatch(popupActions.show({ updateItemPop: true }))
-    }
+    // const handleUpdate = () => {
+    //   dispatch(userActions.selectUpdateId(passwordItem._id))
+    //   dispatch(popupActions.show({ updateItemPop: true }))
+    // }
     const handleCopy = (value) => {
       navigator.clipboard.writeText(value)
       dispatch(infoActions.show({ copySuccess: true}))
@@ -37,15 +37,15 @@ const PasswordItem = ({  vaultItem, item, tag }) => {
   return (
     <li>
         <span className="for-name">{  passwordItem.url}</span>
-        <span className="for-status strong">{  passwordItem.status}</span>
-        <span className="for-pass" onClick={passwordDisplay}>{passwordShow ? passwordItem.value : "**********"}</span>
-        {vaultItem && <span className="for-pass">{  passwordItem.folder}</span> }
+        <span className="for-status strong hide-on-shrink">{  passwordItem.status}</span>
+        <span className="for-pass hide-on-shrink" onClick={passwordDisplay}>{passwordShow ? passwordItem.value : "**********"}</span>
+        {vaultItem && <span className="for-pass hide-on-shrink">{  passwordItem.folder}</span> }
         <span className="for-copy">
             <button onClick={()=> handleCopy(passwordItem.username)} className="copy"><img src={paths.profileIcon} alt="" /></button>
             <button onClick={()=> handleCopy(passwordItem.value)} className="copy"><img src={paths.securityLock} alt="" /></button>
-              <button onClick={handleUpdate} className="copy"><img src={paths.edit} alt="" /></button>
+              {/* <button onClick={handleUpdate} className="copy"><img src={paths.edit} alt="" /></button> */}
               <button onClick={handleDelete} className="copy"><img src={paths.deleteIcon} alt="" /></button>
-              <button onClick={handleFolder} className="copy"><img src={paths.folder} alt="" /></button>
+              <button onClick={handleFolder} className="copy hide-on-shrink"><img src={paths.folder} alt="" /></button>
             
         </span>
     </li>

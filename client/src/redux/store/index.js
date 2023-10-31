@@ -5,6 +5,7 @@ import popupReducer from "../slices/popupSlice";
 import infoReducer from "../slices/infoSlice"
 import folderReducer from "../slices/folderSlice"
 import searchReducer from "../slices/searchSlice"
+import sideBarReducer from "../slices/sideBarSlice"
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
@@ -21,7 +22,8 @@ user: userReducer,
 popup: popupReducer,
 folder: folderReducer,
 search: searchReducer,
-info: infoReducer
+info: infoReducer,
+sidebar: sideBarReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

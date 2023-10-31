@@ -1,23 +1,20 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import paths from "../../statics/assetsImport";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../redux/slices/authSlice";
 import { userActions } from "../../redux/slices/userSlice";
 
 const SideBar = () => {
+    const toggleValue = useSelector(state => state.sidebar.display)
     const dispatch = useDispatch();
     const Logout = () => {
         dispatch(authActions.logout())
         dispatch(userActions.logout())
     }
   return (
-    <aside id="aside">
+    <aside id="aside" className={toggleValue ? "active" : ""} >
             <div className="aside-container">
-                <div className="menu">
-                    <button className="toggle-menu" type="button"><span className="material-symbols-outlined">
-                        menu
-                        </span></button>
-                </div>
+                
                 <div className="menu-items">
                 <NavLink to="home"><div className="menu-options">
                         <img src={paths.dashboard} alt="" />

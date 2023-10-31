@@ -25,6 +25,23 @@
     .block:hover {
         background: $border-ash;
     }
+    @media(max-width:600px){
+        flex-wrap: wrap;
+        .block {
+            width: 100%;
+            padding: 20px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .passblock-des {
+                justify-content: space-between;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    }
 }
 
 button.new-item, .btn-pry {

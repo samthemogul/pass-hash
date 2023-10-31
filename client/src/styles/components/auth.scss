@@ -4,12 +4,24 @@ main.container {
     height: 100vh;
     overflow: hidden;
     grid-template-columns: 50% 50%;
+    @media (max-width: 600px) {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
 }
 // FORM SUPER CONTAINER 
 
 // SIDE SECTION
 .form-container, .desc {
     padding: 4% 10% 0 10%;
+}
+.desc {
+    @media (max-width:600px) {
+        .description {
+            display: none;
+        }
+    }
 }
 .form-container {
     height: 100vh;
@@ -35,12 +47,23 @@ main.container {
         margin-bottom: 15px;
         text-decoration: none;
         color: $text-dark;
+        img.logo {
+            width:50px;
+        }
+    }
+    @media (max-width: 600px){
+        a {
+            img.logo {
+                width: 30px;
+            }
+            h1 {
+                font-size: 1em;
+            }
+        }
     }
 }
 
-img.logo {
-    width:50px;
-}
+
 
 // FIELD CONTAINER
 
@@ -91,5 +114,8 @@ button.btn-pry.register {
         position: absolute;
         bottom: -50%;
         right: 30%;
+        @media(max-width:600px){
+            right: 10%;
+        }
     }
 }

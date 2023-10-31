@@ -9,6 +9,9 @@ nav {
     z-index: 20;
     background: $wizard;
     top: 0;
+    @media(max-width:600px){
+        padding: 0 10px;
+    }
 }
 nav {
     .logo-con {
@@ -42,6 +45,12 @@ nav {
         span:hover {
             color: $king-blue;
         }
+        @media(max-width:600px){
+            display: none;
+        }
+    }
+    @media(max-width:600px){
+        display: none;
     }
 }
 

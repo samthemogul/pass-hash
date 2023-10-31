@@ -4,7 +4,19 @@ aside {
     width: 100%;
     transition: 0.4s;
     overflow: hidden;
+    transition: 0.4s all;
+    @media(max-width:600px){
+        position: absolute;
+        z-index: 10;
+        background: $wizard; 
+        transform: translateX(-100%);
+    }
 
+}
+aside.active {
+    @media(max-width:600px){
+        transform: translateX(0);
+    }
 }
 
 .bridged {
@@ -61,7 +73,7 @@ button.toggle-menu {
     a:last-child {
         position: absolute;
         width: 100%;
-        bottom: -85%;
+        bottom: -100%;
     }
 }
 

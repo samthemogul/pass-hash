@@ -56,14 +56,14 @@ const PasswordItems = ({ tag, isVaultItem}) => {
                             </div>
                             {!vaultItem ? <div className="subtag-description">
                                 <p>name</p>
-                                <p>status</p>
-                                <p>password</p>
+                                <p className="hide-on-shrink">status</p>
+                                <p className="hide-on-shrink">password</p>
                                 <p>copy details</p>
                             </div> : <div className="subtag-description">
                         <p>name</p>
-                        <p>status</p>
+                        <p className="hide-on-shrink">status</p>
                         <p>password</p>
-                        <p>folder</p>
+                        <p className="hide-on-shrink">folder</p>
                         <p>actions</p>
                     </div>}
                             <ul className="password-items">

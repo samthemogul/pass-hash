@@ -16,7 +16,12 @@ main.dashboard {
     display: grid;
     grid-template-columns: 15% 85%;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 90px;
+    @media(max-width:600px){
+        display: flex;
+        width: 100vw;
+        position: relative;
+    }
 }
 
 

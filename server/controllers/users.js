@@ -87,8 +87,25 @@ export const deleteItem = async (req, res) => {
 export const updateItem = async (req, res) => {
     try {
         const { email, id } = req.params;
-        const updatedItem = req.body
+        const updatedItem = req.body;
+
+        const filter = { email: email };
+        const update = { $push: { "passwordList.$[elem]": updatedItem } };
+        const options = { arrayFilters: [{ "elem._id": id}] };
+
+
+        const result = await User.updateOne(filter, update, options);
+
+        if (result.modifiedCount > 0) {
+        // Document was updated
         const user = await User.findOne({ email: email });
+        console.log(user.passwordList)
+        res.status(200).json(user.passwordList);
+        } else {
+        res.status(404).json({ message: "Item not found in the password list" });
+        }
+
+        // const user = await User.findOne({ email: email });
         // const folderToEdit = user.folders.find(item => item.name == updatedItem.folder)
         
 
@@ -101,29 +118,29 @@ export const updateItem = async (req, res) => {
         //     res.status(500).json({ message: "Folder not found"})
         // }
 
-        if (!user) {
-            return res.status(404).json({ message: "User not found" });
-        }
-         const itemToUpdate = user.passwordList.find(item => item._id == id)
-        // Update the Item in the user's passwordList
-        const itemIndex = user.passwordList.indexOf(itemToUpdate);
+        // if (!user) {
+        //     return res.status(404).json({ message: "User not found" });
+        // }
+        //  const itemToUpdate = user.passwordList.find(item => item._id == id)
+        // // Update the Item in the user's passwordList
+        // const itemIndex = user.passwordList.indexOf(itemToUpdate);
 
-        if (itemIndex !== -1) {
-            Object.assign(itemToUpdate, updatedItem);
-            try {
-                // Save the user
-                const savedUser = await user.save();
-                res.status(200).json(savedUser.passwordList);
-              } catch (error) {
-                // Handle the save error
-                console.error('Error saving the user:', error);
-                res.status(500).json({ message: 'Internal Server Error' });
-              }
-            // const savedUser = await user.save();
-            // res.status(200).json(savedUser.passwordList);
-        } else {
-            res.status(404).json({ message: "Item not found in the password list" });
-        }
+        // if (itemIndex !== -1) {
+        //     Object.assign(itemToUpdate, updatedItem);
+        //     try {
+        //         // Save the user
+        //         const savedUser = await user.save();
+        //         res.status(200).json(savedUser.passwordList);
+        //       } catch (error) {
+        //         // Handle the save error
+        //         console.error('Error saving the user:', error);
+        //         res.status(500).json({ message: 'Internal Server Error' });
+        //       }
+        //     // const savedUser = await user.save();
+        //     // res.status(200).json(savedUser.passwordList);
+        // } else {
+        //     res.status(404).json({ message: "Item not found in the password list" });
+        // }
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
@@ -142,7 +159,6 @@ export const addFolder = async (req, res) => {
         } else {
             res.status(500).json({ message: "User not found"})
         }
-        
 
     } catch (error) {
         res.status(500).json(error)

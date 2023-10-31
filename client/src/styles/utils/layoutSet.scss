@@ -31,10 +31,18 @@ body, input, button, textarea {
 // SCROLLBAR SETTINGS 
 .content::-webkit-scrollbar {
     width: 10px;
+    @media(max-width:600px){
+        display: none;
+    }
 }
 .content::-webkit-scrollbar-track {
     background: $border-ash;
 }
 .content::-webkit-scrollbar-thumb {
     background: $text-ash;
+}
+@media(max-width:600px){
+    -webkit-scrollbar {
+        display: none !important;
+    }
 }
