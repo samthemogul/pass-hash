@@ -25,8 +25,24 @@
             }
             .password-items {
                 li {
-                    grid-template-columns: 20% 20% 20% 20% 20%;
+                    @media(min-width:800px){
+                        grid-template-columns: 20% 20% 20% 20% 20%;
+                    }
+                    @media(max-width){
+                        grid-template-columns: 50% 50%;
+                    }
                 }
+            }
+        }
+    }
+    @media(max-width: 600px){
+        width: 100%;
+        gap: 10px;
+        .vault-actions {
+            flex-direction: column;
+            gap: 5px;
+            button {
+                width: 100%;
             }
         }
     }

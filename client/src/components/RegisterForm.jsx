@@ -184,10 +184,10 @@ const RegisterForm = () => {
         )}
       
       </Formik>
-      <button type="button" className="btn-trans google-auth">
+      {/* <button type="button" className="btn-trans google-auth">
         <img src={paths.googleLogo} alt="" />
         <span>Sign up with Google</span>
-      </button>
+      </button> */}
       <div className="logged-in">
         <p>
           Already have an account? <Link to="/login">Sign In</Link>

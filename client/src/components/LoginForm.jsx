@@ -129,14 +129,14 @@ const LoginForm = () => {
           Login
         </button>
       </form>
-      <button 
+      {/* <button 
       type="button" 
       className="btn-trans google-auth"
       onClick={handleGoogleAuth}
       >
         <img src={paths.googleLogo} alt="" />
         <span>Sign in with Google</span>
-      </button>
+      </button> */}
       <div className="logged-in">
         <p>
           Don't have an account? <Link to="/register">Sign Up</Link>

@@ -9,6 +9,9 @@
     .settings {
         height: 30vh;
         margin: 0 20%;
+        @media(max-width:600px){
+            margin: 0 5%;
+        }
     }
     h3 {
         color: $text-ash;
@@ -33,6 +36,9 @@
         padding: 20px;
         margin: 20px 0;
         cursor: pointer;
+        @media(max-width:600px){
+            background: $border-ash
+        }
     }
     .setting-option:hover {
         background: $border-ash;
@@ -46,6 +52,9 @@
 
 .set-body::-webkit-scrollbar {
     width: 10px;
+    @media(max-width:600px){
+        display: none;
+    }
 }
 .set-body::-webkit-scrollbar-track {
     background: $border-ash;

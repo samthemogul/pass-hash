@@ -59,10 +59,10 @@ const PasswordItems = ({ tag, isVaultItem}) => {
                                 <p className="hide-on-shrink">status</p>
                                 <p className="hide-on-shrink">password</p>
                                 <p>copy details</p>
-                            </div> : <div className="subtag-description">
+                            </div> : <div className="subtag">
                         <p>name</p>
                         <p className="hide-on-shrink">status</p>
-                        <p>password</p>
+                        <p className="hide-on-shrink">password</p>
                         <p className="hide-on-shrink">folder</p>
                         <p>actions</p>
                     </div>}
@@ -70,7 +70,6 @@ const PasswordItems = ({ tag, isVaultItem}) => {
                                 { filteredList.length ? filteredList.map((item) => {
                                   return <PasswordItemConfigured key={item._id} vaultItem={vaultItem} item={item} tag={tag} />
                                 }) : <li><em>No items added yet..</em></li>}
-                                {}
                                 
                             </ul>
                         </div>

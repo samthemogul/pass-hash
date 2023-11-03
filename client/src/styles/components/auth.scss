@@ -30,6 +30,9 @@ main.container {
 }
 .form-container::-webkit-scrollbar {
     width: 7px;
+    @media(max-width:600px){
+        display: none;
+    }
 }
 
 .form-container::-webkit-scrollbar-track {

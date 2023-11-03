@@ -17,6 +17,12 @@ nav {
     .logo-con {
         padding-top: 10px;
     }
+    .menu {
+        display: none;
+        @media(max-width:600px){
+            display: block;
+        }
+    }
 }
 nav {
     .logo-con {
