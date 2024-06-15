@@ -17,6 +17,4 @@ Welcome to our Password Manager App! This application is designed to help you se
 - **Offline Mode**: Access your passwords even when you're offline.
 - **Cross-Platform**: Use the app on multiple devices with synchronization.
 
-## In Development
 
-This application is still in development. Stay tuned to know when it is released.
